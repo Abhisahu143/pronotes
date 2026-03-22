@@ -10,7 +10,7 @@ import { getNotes, createNote, updateNote, deleteNote } from './api';
 function App() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [activeNoteId, setActiveNoteId] = useState<string | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -57,6 +57,13 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Mobile Backdrop */}
+      {isSidebarOpen && (
+        <div 
+           className="mobile-overlay" 
+           onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
       <Sidebar 
         isOpen={isSidebarOpen}
         setIsOpen={setIsSidebarOpen}
