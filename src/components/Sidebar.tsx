@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="sidebar-header">
         <div className="logo">
           <BookOpen className="logo-icon" size={24} />
-          <span>ProNotes</span>
+          <span>Zenith</span>
         </div>
         <button className="btn-icon" onClick={() => setIsOpen(!isOpen)}>
           <Menu size={20} />
